@@ -115,8 +115,8 @@
 
     QUser user = QUser.user;
     List<User> users = queryFactory.selectFrom(user)
-								   .where(user.age.gt(30))
-								   .fetch();
+				   .where(user.age.gt(30))
+				   .fetch();
 
 В этом примере видно, что запрос строится декларативно: вы описываете **"что"** вы хотите (например, выбрать пользователей старше 30 лет), и QueryDSL на фоне генерирует SQL-запросы.
 
@@ -141,8 +141,8 @@
 #### **Пример запроса в Jooq:**
 
     List<User> users = context.selectFrom(USER)
-							  .where(USER.AGE.gt(30))
-							  .fetch();
+			      .where(USER.AGE.gt(30))
+			      .fetch();
 
 Этот код почти идентичен традиционному SQL, что делает его очень удобным для разработчиков, привыкших к SQL-запросам. Jooq позволяет разрабатывать сложные SQL-запросы, используя все возможности реляционной базы данных, такие как агрегации, оконные функции, подзапросы и другие возможности SQL.
 
@@ -186,14 +186,14 @@
 
     QUser user = QUser.user;
     List<User> users = queryFactory.selectFrom(user)
-								   .where(user.age.gt(30))
-								   .fetch();
+				   .where(user.age.gt(30))
+				   .fetch();
 
 **НЕКОРРЕКТНЫЙ код:** age - это int, а "thirty" - String. Ошибка компиляции.
 
     List<User> users = queryFactory.selectFrom(user) 
-    							   .where(user.age.eq("thirty"))
-    							   .fetch();
+    				   .where(user.age.eq("thirty"))
+    				   .fetch();
 
 Здесь QueryDSL не позволит вам выполнить запрос с неверным типом данных (например, сравнить int с String), и ошибка будет поймана на этапе компиляции.
 
