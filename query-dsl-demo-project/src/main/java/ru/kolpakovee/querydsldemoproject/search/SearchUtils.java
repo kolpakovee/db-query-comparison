@@ -11,7 +11,7 @@ public class SearchUtils<T extends BaseSearchEntity> {
     public BooleanExpression splitSearchQuery(Class<T> entityClass, String search) {
         PredicateBuilder<T> builder = new PredicateBuilder<>(entityClass);
 
-        Pattern pattern = Pattern.compile("(\\w+?)([:<>])(\\w+?),");
+        Pattern pattern = Pattern.compile("(\\w+?)([=:<>])(\\w+?),");
         Matcher matcher = pattern.matcher(search + ",");
 
         while (matcher.find()) {
