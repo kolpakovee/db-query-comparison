@@ -8,7 +8,7 @@ import java.util.List;
 
 @Data
 @Entity
-public class Company {
+public class Company implements BaseSearchEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

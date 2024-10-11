@@ -9,7 +9,7 @@ import lombok.Data;
 
 @Data
 @Entity
-public class Position {
+public class Position implements BaseSearchEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

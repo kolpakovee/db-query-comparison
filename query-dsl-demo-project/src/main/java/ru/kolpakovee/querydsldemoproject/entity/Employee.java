@@ -7,7 +7,7 @@ import java.time.LocalDate;
 
 @Data
 @Entity
-public class Employee {
+public class Employee implements BaseSearchEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -11,7 +11,7 @@ import java.math.BigDecimal;
 
 @Data
 @Entity
-public class Salary {
+public class Salary implements BaseSearchEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

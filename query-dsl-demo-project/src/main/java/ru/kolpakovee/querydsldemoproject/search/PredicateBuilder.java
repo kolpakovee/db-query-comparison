@@ -8,16 +8,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class EmployeePredicateBuilder {
+public class PredicateBuilder<T> {
     private final List<SearchCriteria> params;
+    private final Class<T> entityClass;
 
-    public EmployeePredicateBuilder() {
-        params = new ArrayList<>();
+    public PredicateBuilder(Class<T> entityClass) {
+        this.params = new ArrayList<>();
+        this.entityClass = entityClass;
     }
 
-    public EmployeePredicateBuilder with(
-            String key, Object value, String operation) {
-
+    public PredicateBuilder<T> with(String key, String operation, Object value) {
         params.add(new SearchCriteria(key, value, operation));
         return this;
     }
@@ -29,9 +29,10 @@ public class EmployeePredicateBuilder {
 
         List<BooleanExpression> predicates = params.stream()
                 .map(param -> {
-                    EmployeePredicate predicate = new EmployeePredicate(param);
+                    Predicate<T> predicate = new Predicate<>(param, entityClass);
                     return predicate.getPredicate();
-                }).filter(Objects::nonNull)
+                })
+                .filter(Objects::nonNull)
                 .toList();
 
         BooleanExpression expression = Expressions.TRUE;
@@ -42,3 +43,4 @@ public class EmployeePredicateBuilder {
         return expression;
     }
 }
+
