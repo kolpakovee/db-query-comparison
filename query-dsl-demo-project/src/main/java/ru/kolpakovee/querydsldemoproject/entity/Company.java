@@ -18,5 +18,5 @@ public class Company {
     private String location;
 
     @OneToMany(mappedBy = "company")
-    private List<User> employees;
+    private List<Employee> employees;
 }
