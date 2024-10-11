@@ -1,5 +1,6 @@
 package ru.kolpakovee.querydsldemoproject.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -17,6 +18,7 @@ public class Company {
 
     private String location;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "company")
     private List<Employee> employees;
 }
