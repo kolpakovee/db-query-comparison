@@ -1,16 +1,14 @@
 package ru.kolpakovee.querydsldemoproject.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import ru.kolpakovee.querydsldemoproject.entity.Employee;
 import ru.kolpakovee.querydsldemoproject.service.SearchService;
 
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/employees")
+@CrossOrigin(origins = "http://localhost:3000")
 public class EmployeesController {
 
     private final SearchService service;
